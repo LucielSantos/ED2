@@ -1,0 +1,17 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "file:///G:/Meu%20Drive/Classroom/Estrutura%20De%20Dados%20II%202019%201/arvores%20binarias%20js/index.html",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
