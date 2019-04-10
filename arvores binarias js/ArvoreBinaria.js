@@ -78,6 +78,12 @@ class Arvore{
             return false;
         }
 
+        if (this.indice == numero) {
+            this.indice = null;
+            return true;
+        }
+        
+
         if(this.esquerda != null){
             if(this.esquerda.indice == numero){
                 this.esquerda = null;
@@ -108,6 +114,11 @@ class Arvore{
             return false;
         }
 
+        if (this.indice == numero) {
+            this.indice = null;
+            return true;
+        }
+
         if (this.esquerda != null) {
             if(this.esquerda.indice == numero){
                 this.esquerda = this.esquerda.retornaUmFilho();
@@ -121,14 +132,64 @@ class Arvore{
 
         if (this.direita != null) {
             if (this.direita.indice == numero) {
-                this.direita = this.direita.retornaUmFilho();
+                this.direita = this.direita.retornaUmFilho(numero);
                 return true;
             }
             if(numero >= this.direita.indice){
-                return this.direita.removerComUmFilho();
+                return this.direita.removerComUmFilho(numero);
             }
         }
         return false;
+    }
+
+    removerComDoisFilhos(numero){
+        if (this.indice == null) {
+            return false;
+        }
+
+        if(this.indice == numero){
+            let aux = new Arvore;
+            aux = this.esquerda;
+
+
+            while(aux.direita != null){
+                aux = aux.direita;
+            }
+
+            this.indice = aux.indice;
+
+            if(aux.esquerda != null){
+                this.removerComUmFilho(aux.indice);
+            }else{
+                this.removerSemFilhos(aux.indice);
+            }
+
+            return true;
+        }
+
+        if (this.esquerda != null) {
+            if (numero < this.indice) {
+                return this.esquerda.removerComDoisFilhos(numero);
+            }
+        }
+
+        if (this.direita != null) {
+            if(numero > this.indice){
+                return this.direita.removerComDoisFilhos(numero);
+            }
+        }
+        
+        return false;
+    }
+
+    remover(numero){
+        if (this.indice == null) {
+            return false;
+        }
+
+        if (this.indice) {
+            
+        }
     }
 
     retornaUmFilho(){
@@ -138,6 +199,7 @@ class Arvore{
             return this.direita;
         }
     }
+
 }
 
 
@@ -149,6 +211,11 @@ arvore.inserir(2);
 arvore.inserir(1);
 arvore.inserir(3);
 arvore.inserir(4);
+arvore.inserir(8);
+arvore.inserir(5);
+arvore.inserir(9);
+
+
 
 // console.log(arvore);
 
@@ -170,15 +237,19 @@ arvore.emOrdem(arvore);
 
 console.log("--------------------");
 
-// console.log(arvore.removerSemFilhos(4));
+// console.log(arvore.removerSemFilhos(2));
 
-console.log(arvore.removerComUmFilho(2));
+// console.log(arvore.removerComUmFilho(2));
 
+console.log(arvore.removerComDoisFilhos(10));
 
 
 console.log("--------------------");
 
 arvore.emOrdem(arvore);
+
+console.log(arvore);
+
 
 // console.log(arvore);
 
