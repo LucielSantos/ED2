@@ -88,6 +88,7 @@ class Arvore{
                 return this.esquerda.removerSemFilhos(numero);
             }
         }
+
         if (this.direita != null) {
             if (this.direita.indice == numero) {
                 this.direita = null;
@@ -100,6 +101,42 @@ class Arvore{
         }
 
         return false;
+    }
+
+    removerComUmFilho(numero){
+        if (this.indice == null) {
+            return false;
+        }
+
+        if (this.esquerda != null) {
+            if(this.esquerda.indice == numero){
+                this.esquerda = this.esquerda.retornaUmFilho();
+                return true;
+            }
+
+            if(numero < this.esquerda.indice){
+                return this.esquerda.removerComUmFilho(numero)
+            }
+        }
+
+        if (this.direita != null) {
+            if (this.direita.indice == numero) {
+                this.direita = this.direita.retornaUmFilho();
+                return true;
+            }
+            if(numero >= this.direita.indice){
+                return this.direita.removerComUmFilho();
+            }
+        }
+        return false;
+    }
+
+    retornaUmFilho(){
+        if (this.esquerda != null) {
+            return this.esquerda;            
+        }else{
+            return this.direita;
+        }
     }
 }
 
@@ -133,13 +170,16 @@ arvore.emOrdem(arvore);
 
 console.log("--------------------");
 
-console.log(arvore.removerSemFilhos(4));
+// console.log(arvore.removerSemFilhos(4));
+
+console.log(arvore.removerComUmFilho(2));
+
 
 
 console.log("--------------------");
 
 arvore.emOrdem(arvore);
 
-console.log(arvore);
+// console.log(arvore);
 
 
