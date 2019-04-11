@@ -73,184 +73,89 @@ class Arvore{
         }  
     }
 
-    removerSemFilhos(numero){
-        if (this.indice == null) {
-            return false;
-        }
-
-        if (this.indice == numero) {
-            this.indice = null;
-            return true;
-        }
-        
-
-        if(this.esquerda != null){
-            if(this.esquerda.indice == numero){
-                this.esquerda = null;
-                return true;
-            }
-
-            if (numero < this.esquerda.indice) {
-                return this.esquerda.removerSemFilhos(numero);
-            }
-        }
-
-        if (this.direita != null) {
-            if (this.direita.indice == numero) {
-                this.direita = null;
-                return true;
-            }
-
-            if (numero >= this.direita.indice) {
-                return this.direita.removerSemFilhos(numero);
-            }
-        }
-
-        return false;
-    }
-
-    removerComUmFilho(numero){
-        if (this.indice == null) {
-            return false;
-        }
-
-        if (this.indice == numero) {
-            this.indice = null;
-            return true;
-        }
-
-        if (this.esquerda != null) {
-            if(this.esquerda.indice == numero){
-                this.esquerda = this.esquerda.retornaUmFilho();
-                return true;
-            }
-
-            if(numero < this.esquerda.indice){
-                return this.esquerda.removerComUmFilho(numero)
-            }
-        }
-
-        if (this.direita != null) {
-            if (this.direita.indice == numero) {
-                this.direita = this.direita.retornaUmFilho(numero);
-                return true;
-            }
-            if(numero >= this.direita.indice){
-                return this.direita.removerComUmFilho(numero);
-            }
-        }
-        return false;
-    }
-
-    removerComDoisFilhos(numero){
-        if (this.indice == null) {
-            return false;
-        }
-
-        if(this.indice == numero){
-            let aux = new Arvore;
-            aux = this.esquerda;
-
-
-            while(aux.direita != null){
-                aux = aux.direita;
-            }
-
-            this.indice = aux.indice;
-
-            if(aux.esquerda != null){
-                this.removerComUmFilho(aux.indice);
-            }else{
-                this.removerSemFilhos(aux.indice);
-            }
-
-            return true;
-        }
-
-        if (this.esquerda != null) {
-            if (numero < this.indice) {
-                return this.esquerda.removerComDoisFilhos(numero);
-            }
-        }
-
-        if (this.direita != null) {
-            if(numero > this.indice){
-                return this.direita.removerComDoisFilhos(numero);
-            }
-        }
-        
-        return false;
-    }
-
     remover(numero){
         if (this.indice == null) {
             return false;
         }
 
-        if (this.indice) {
-            
+        if (this.indice == numero) {
+            if (this.esquerda == null && this.direita == null) {
+                // sem filhos
+                this.indice = null;
+                return true;
+            }
+            if ((this.direita == null || this.esquerda == null) && !(this.direita == null && this.esquerda == null)) {
+                // um filho
+                if (this.direita != null) {
+                    let aux = this.direita;
+                    this.indice = aux.indice;
+                    this.esquerda = aux.esquerda;
+                    this.direita = aux.direita;
+                }else{
+                    let aux = this.esquerda;
+                    this.indice = aux.indice;
+                    this.esquerda = aux.esquerda;
+                    this.direita = aux.direita;
+                }
+                return true;
+            }else{
+                // dois Filhos
+
+                var aux = this.esquerda.buscaMaior();
+
+                this.remover(aux);
+                
+                this.indice = aux;
+
+                return true;
+            }
         }
+
+        if (this.esquerda != null || this.direita != null) {
+            if (numero < this.indice) {
+                this.esquerda.remover(numero);
+                if (this.esquerda.indice == null) {
+                    this.esquerda = null;
+                    return true;
+                }
+            }else{
+                let verif;
+                verif = this.direita.remover(numero);
+                if (this.direita.indice == null) {
+                    this.direita = null;
+                }
+
+                return verif;
+            }
+        }
+        return false;
     }
 
-    retornaUmFilho(){
-        if (this.esquerda != null) {
-            return this.esquerda;            
+    buscaMaior(){
+        if (this.direita != null) {
+            return this.direita.buscaMaior();
         }else{
-            return this.direita;
+            return this.indice;
         }
     }
 
 }
 
-
-
 arvore = new Arvore;
-
 
 arvore.inserir(2);
 arvore.inserir(1);
-arvore.inserir(3);
-arvore.inserir(4);
-arvore.inserir(8);
 arvore.inserir(5);
-arvore.inserir(9);
-
-
-
-// console.log(arvore);
-
-// console.log("--------------------");
-
-// console.log(arvore.buscar(4));
-
-// console.log("--------------------");
-
-// arvore.preOrdem(arvore);
-
-// console.log("--------------------");
+arvore.inserir(4);
 
 arvore.emOrdem(arvore);
 
-// console.log("--------------------");
-
-// arvore.posOrdem(arvore);
-
 console.log("--------------------");
 
-// console.log(arvore.removerSemFilhos(2));
-
-// console.log(arvore.removerComUmFilho(2));
-
-console.log(arvore.removerComDoisFilhos(10));
-
+console.log(arvore.remover(5));
 
 console.log("--------------------");
 
 arvore.emOrdem(arvore);
 
 console.log(arvore);
-
-
-// console.log(arvore);
-
-
