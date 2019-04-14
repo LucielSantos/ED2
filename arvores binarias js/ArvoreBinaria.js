@@ -6,18 +6,22 @@ class Arvore{
     }
 
     inserir(numero){
+        if(numero == ""){
+            return false;
+        }
         if (this.indice == null) {
             this.indice = numero;
+            return true;
         }else if (numero < this.indice) {
             if(this.esquerda == null){
                 this.esquerda = new Arvore;
             }
-            this.esquerda.inserir(numero);
+            return this.esquerda.inserir(numero);
         }else{
             if(this.direita == null){
                 this.direita = new Arvore;
             }
-            this.direita.inserir(numero);
+            return this.direita.inserir(numero);
         }
     }
 
@@ -49,16 +53,17 @@ class Arvore{
         }
     }
 
-    emOrdem(){
+    emOrdem(vet){
         if (this.esquerda != null) {
-            this.esquerda.emOrdem();
+            this.esquerda.emOrdem(vet);
         }
         if (this.indice != null) {
-            console.log(this.indice);
+            vet.push(this.indice);
         }
         if(this.direita != null){
-            this.direita.emOrdem();
-        }   
+            this.direita.emOrdem(vet);
+        }
+        return vet;   
     }
 
     posOrdem(){
@@ -148,14 +153,20 @@ arvore.inserir(1);
 arvore.inserir(5);
 arvore.inserir(4);
 
-arvore.emOrdem(arvore);
+// var vet = [];
 
-console.log("--------------------");
+// arvore.emOrdem(vet);
 
-console.log(arvore.remover(5));
+// console.log(vet);
 
-console.log("--------------------");
 
-arvore.emOrdem(arvore);
 
-console.log(arvore);
+// console.log("--------------------");
+
+// console.log(arvore.remover(5));
+
+// console.log("--------------------");
+
+// arvore.emOrdem(arvore);
+
+// console.log(arvore);
