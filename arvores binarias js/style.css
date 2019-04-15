@@ -7,6 +7,14 @@ tr{
     height: 3em;
 }
 
+footer{
+    height: 2em;
+    background-color: rgb(0, 117, 250);
+    color: white;
+    text-align: right;
+    padding: 5px 5px 0px 0px
+}
+
 #linha{
     height: 1px;
     width: 100%;
