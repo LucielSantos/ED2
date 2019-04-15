@@ -1,26 +1,8 @@
-console.log("fui importado");
+console.log("Adicionar Importado");
 
 var arvore = new Arvore;
 
-console.log(arvore);
-
-var botaoAdicionar = document.querySelector("#botaoAdiciona");
-// botaoAdicionarsssssssssssrrrrrrrrrrrrrrrrrrrrrr.addEventListener("click", function(event){
-//     event.preventDefault();
-
-//     console.log("Apertado");
-    
-//     let form = document.querySelector("#formAdiciona");
-
-//     console.log(form.indice.value);
-
-//     console.log(arvore.inserir(form.indice.value));
-    
-
-    
-
-//     console.log(arvore);
-// });
+let botaoAdicionar = document.querySelector("#botaoAdiciona");
 
 botaoAdicionar.addEventListener("click", function(event){
     event.preventDefault();
@@ -37,7 +19,7 @@ botaoAdicionar.addEventListener("click", function(event){
         addTabelaMatricula(matricula);
     }
 
-    console.log(arvore);
+    form.reset();
 
 });
 
@@ -50,7 +32,7 @@ function mensagemAdiciona(verif) {
         mesnagem.textContent = "Número de Matrícula Adicionado";    
     }else{
         mesnagem.classList.add("mensagemErro");
-        mesnagem.textContent = "Por Favor Preencha o Campo";
+        mesnagem.textContent = "Por Favor Preencha o Campo Corretamente";
     }
 }
 

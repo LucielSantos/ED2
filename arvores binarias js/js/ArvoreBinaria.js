@@ -41,16 +41,17 @@ class Arvore{
         }
     }
 
-    preOrdem(){
+    preOrdem(vet){
         if(this.indice != null){
-            console.log(this.indice);
+            vet.push(this.indice);
         }
         if (this.esquerda != null) {
-            this.esquerda.preOrdem();
+            this.esquerda.preOrdem(vet);
         }
         if (this.direita != null) {
-            this.direita.preOrdem();
+            this.direita.preOrdem(vet);
         }
+        return vet;
     }
 
     emOrdem(vet){
@@ -66,16 +67,17 @@ class Arvore{
         return vet;   
     }
 
-    posOrdem(){
+    posOrdem(vet){
         if (this.esquerda != null) {
-            this.esquerda.posOrdem();
+            this.esquerda.posOrdem(vet);
         }
         if(this.direita != null){
-            this.direita.posOrdem();
+            this.direita.posOrdem(vet);
         }
         if (this.indice != null) {
-            console.log(this.indice);
-        }  
+            vet.push(this.indice);
+        } 
+        return vet; 
     }
 
     remover(numero){
@@ -118,20 +120,24 @@ class Arvore{
 
         if (this.esquerda != null || this.direita != null) {
             if (numero < this.indice) {
-                this.esquerda.remover(numero);
+                let verif;
+                verif = this.esquerda.remover(numero);
                 if (this.esquerda.indice == null) {
                     this.esquerda = null;
                     return true;
                 }
-            }else{
-                let verif;
-                verif = this.direita.remover(numero);
-                if (this.direita.indice == null) {
-                    this.direita = null;
-                }
-
                 return verif;
             }
+        }
+
+        if (this.direita != null) {
+            let verif;
+            verif = this.direita.remover(numero);
+            if (this.direita.indice == null) {
+                this.direita = null;
+            }
+
+            return verif;
         }
         return false;
     }
@@ -142,6 +148,28 @@ class Arvore{
         }else{
             return this.indice;
         }
+    }
+
+    aninhamento(aux){
+        if (this.indice != null) {
+            aux = aux.concat("{"+this.indice);
+        }
+        if (this.esquerda != null) {
+            aux = this.esquerda.aninhamento(aux);
+        }
+        if (this.direita != null) {
+            aux = this.direita.aninhamento(aux);
+        }
+
+        aux = aux.concat("}");
+        
+        return aux;
+    }
+
+    concat(aux){
+        var hello = "hello"
+        aux.concat(hello)
+        return aux
     }
 
 }

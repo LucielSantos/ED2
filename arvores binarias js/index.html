@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <link href="style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Document</title>
+    <title>Arvore Binaria EDII</title>
 </head>
 <body>
 
@@ -40,81 +38,75 @@
 
                 </div>
                 <div class="col">
-                    <button class="btn btn-primary btnComando" data-toggle="collapse" data-target="#preOrdem">Listar Pré-ordem</button>
+                    <button id="preOrdem" class="btn btn-primary btnComando">Listar Pré-ordem</button>
 
                 </div>
                 <div class="col">
-                        <button class="btn btn-primary btnComando" data-toggle="collapse" data-target="#emOrdem">Listar Em-ordem</button>
+                    <button id="emOrdem" class="btn btn-primary btnComando">Listar Em-ordem</button>
 
                 </div>
                 <div class="col">
-                    <button class="btn btn-primary btnComando" data-toggle="collapse" data-target="#posOrdem">Listar Pós-ordem</button>
+                    <button id="posOrdem" class="btn btn-primary btnComando">Listar Pós-ordem</button>
 
                 </div>
                 <div class="col">
-                    <button class="btn btn-primary" data-toggle="collapse" data-target="#aninhamento">Mostrar Em aninhamento</button>
+                    <button id="btnAninhmaneto" class="btn btn-primary" data-toggle="collapse" data-target="#aninhamento">Mostrar Em aninhamento</button>
 
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col">
-                    <div class="collapse" id="adiciona">
+                <!-- botão adicionar -->
+            <div  class="collapse" id="adiciona">
+                <div class="row">
+                    <div class="col-7">
                         <form id="formAdiciona">
                             <label for="adiciona">Adicionar Número de Matrícula na Arvore: </label>
                             <input type="number" name="matricula" id="matricula" placeholder="Nº Matricula">
                 
                             <button class="btn btn-secondary" id="botaoAdiciona">Adicionar</button>
                         </form>
+                    </div>
+                    <div class="col">
                         <span id="mensagemAdiciona"></span> 
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col">
-                    <div class="collapse" id="buscar">
-                        buscar
+            <!-- botão buscar -->
+            <div class="collapse" id="buscar">
+                <div class="row">
+                    <div class="col">
+                        <form id="formBusca">
+                            <label for="buscar">Insira a Matrícula a Ser Buscada: </label>
+                            <input type="number" name="numero" id="numero" placeholder="Nº Matricula">
+                            <button class="btn btn-secondary" id="botaoBuscar">Buscar</button>
+                        </form>
+                        
+                    </div>
+                    <div class="col">
+                        <span id="mensagemBuscar"></span>
                     </div>
                 </div>
             </div> 
-            
-            <div class="row">
-                <div class="col">
-                    <div class="collapse" id="remover">
-                        remover
+            <!-- botão remover -->
+            <div class="collapse" id="remover">
+                <div class="row">
+                    <div class="col">
+                        <form id="formRemover">
+                            <label for="remover">Insira a Matrícula a Ser Removida: </label>
+                            <input type="number" name="numero" id="numero" placeholder="Nº Matricula">
+                            <button class="btn btn-secondary" id="botaoRemover">Remover</button>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <span id="mensagemRemover"></span>
                     </div>
                 </div>
             </div>
-            
-            <div class="row">
-                <div class="col">
-                    <div class="collapse" id="preOrdem">
-                        Pre-ordem
-                    </div>
-                </div>
-            </div> 
 
-            <div class="row">
-                <div class="col">
-                    <div class="collapse" id="emOrdem">
-                        Em-Ordem
-                    </div>
-                </div>
-            </div> 
-
-            <div class="row">
-                <div class="col">
-                    <div class="collapse" id="posOrdem">
-                        Pos-ordem
-                    </div>
-                </div>
-            </div> 
-
-            <div class="row">
-                <div class="col">
-                    <div class="collapse" id="aninhamento">
+            <div class="collapse" id="aninhamento">
+                <div class="row">
+                    <div class="col">
                         Estrutura da arvore binaria em aninhamento:
+                        <span id="mostraAninhamento"></span>
                     </div>
                 </div>
             </div> 
@@ -123,7 +115,7 @@
 
         <h4 id="nomeMatriculas">Matrículas</h4>
 
-        <hr>
+        <div id="linha"></div>
 
         <table class="tabelaMatricula">
             
@@ -136,8 +128,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    <script src="ArvoreBinaria.js"></script>
-    <script src="scripit.js"></script>
+    <script src="js/ArvoreBinaria.js"></script>
+    <script src="js/adicionar.js"></script>
+    <script src="js/buscar.js"></script>
+    <script src="js/remover.js"></script>
+    <script src="js/preOrdem.js "></script>
+    <script src="js/emOrdem.js"></script>
+    <script src="js/posOrdem.js"></script>
+    <script src="js/aninhamento.js"></script>
     
 </body>
 </html>
