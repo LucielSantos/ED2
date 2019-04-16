@@ -118,7 +118,7 @@ class Arvore{
             }
         }
 
-        if (this.esquerda != null || this.direita != null) {
+        if (this.esquerda != null) {
             if (numero < this.indice) {
                 let verif;
                 verif = this.esquerda.remover(numero);
@@ -131,13 +131,17 @@ class Arvore{
         }
 
         if (this.direita != null) {
-            let verif;
-            verif = this.direita.remover(numero);
-            if (this.direita.indice == null) {
-                this.direita = null;
+            if (numero > this.indice) {
+                let verif;
+                verif = this.direita.remover(numero);
+                if (this.direita.indice == null) {
+                    this.direita = null;
+                }
+
+                return verif;
             }
 
-            return verif;
+            
         }
         return false;
     }
@@ -174,22 +178,24 @@ class Arvore{
 
 }
 
-arvore = new Arvore;
+// arvore = new Arvore;
 
-arvore.inserir(2);
-arvore.inserir(1);
-arvore.inserir(5);
-arvore.inserir(4);
+// arvore.inserir(48);
+// arvore.inserir(9);
+// arvore.inserir(4);
+// arvore.inserir(50);
+// arvore.inserir(69);
 
 // var vet = [];
 
-// arvore.emOrdem(vet);
+// vet = arvore.emOrdem(vet);
 
 // console.log(vet);
 
-
-
 // console.log("--------------------");
+
+// console.log(arvore);
+
 
 // console.log(arvore.remover(5));
 

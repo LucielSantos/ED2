@@ -11,7 +11,16 @@ botaoAdicionar.addEventListener("click", function(event){
 
     let matricula = form.matricula.value;
 
-    let verif = arvore.inserir(matricula);
+    let verif = false;
+
+    if (matricula == "") {
+        mensagemAdiciona(verif);
+        return "";
+    }
+
+    matricula = parseInt(matricula);
+
+    verif = arvore.inserir(matricula);    
 
     mensagemAdiciona(verif);
 
@@ -58,4 +67,3 @@ function addTabelaMatricula(matriucla){
     table.appendChild(montaTr(matriucla));
 
 }
-

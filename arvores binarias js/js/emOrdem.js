@@ -11,13 +11,13 @@ botaoEmOrdem.addEventListener("click", function(event){
 })
 
 function addEmOrdem() {
-    let vet = [];
+    var vet = [];
 
     vet = arvore.emOrdem(vet);
 
     setTimeout(function(){
-        vet.forEach(function(matricula){
-            addTabelaMatricula(matricula); //metodo em adicionar.js
+        vet.forEach(function(vet){
+            addTabelaMatricula(vet); //metodo em adicionar.js
         });    
     }, 500);
 
