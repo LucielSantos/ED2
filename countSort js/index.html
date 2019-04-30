@@ -2,12 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="starter-template.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Count Sort</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="navbar-brand">ED II</div>
 
-    <script src="countSort.js"></script>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Principal</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <article>
+        <div class="container">
+            <div class="corpo">
+                <form>
+                    <input type="number" id="numero" placeholder="Informe um número..." />
+                    <br>
+                    <button id="adicionar" class="btn btn-dark">Adicionar</button>
+                    <br>
+                    <span id="mensagemAdd"></span>
+                    <p id="arrayAtual"></p>
+                </form>
+                
+                
+                <button onclick="ordenaDados();" type="button" class="btn btn-dark" style="color: rgb(145, 145, 145)">Organizar</button>
+                <p id="printa"></p>
+            </div>
+        </div>
+    </article>    
+
+    <footer>
+        <div>
+            Copyright &copy; &nbsp; Rafael KR - Art
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>
