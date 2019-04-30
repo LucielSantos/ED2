@@ -5,10 +5,11 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    background: radial-gradient(circle, white, grey);
 }
 
 article {
-    margin-top: 8%;
+    margin-top: 17%;
 }
 
 input {
