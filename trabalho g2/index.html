@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <!-- Importando CSS Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Importando CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="container">
+        <div class="cabecalho flexBoxCenter">
+            <span id="titulo">Trabalho de ED II - G2</span>
+            <span id="subtitulo">Hash</span>
+            <span id="nome"><i>Luciel Vitor  -  2019/1</i> </span>
+        </div>
+    </header>
+
+    <section class="container flexBoxCenter">
+        <form class="formAdiciona">
+            <label for="cgu">CGU:</label>
+            <input type="number" name="cgu" class="form-control" id="cgu" placeholder="Insira o CGU do aluno">
+
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" class="form-control" id="nome" placeholder="Insira o nome do aluno">
+
+            <div class="flexBoxCenter" id="botoes">
+                <button class="btn btnNav" id="btnAdiciona">Adicionar</button>
+                <button class="btn btnNav" id="btnPesquisa">Pesquisar</button>
+                <button class="btn btnNav" id="btnRemove">Remover</button>
+            </div> 
+        </form>
+
+        <table class="tabela">
+            <tr>
+                <th>Alunos</th>
+            </tr>
+            <tr>
+                <td>Juvenall</td>
+            </tr>
+        </table>
+    </section>
+
+    <footer>
+
+    </footer>
+
+    <!-- Importando JS -->
+    <script src="ordenacao.js"></script>
+    <script src="script.js"></script>
+    <!-- Importando JS Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

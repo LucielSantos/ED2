@@ -1,0 +1,78 @@
+header{
+    background-color: orangered;
+    color: white;
+    min-height: 10em;
+    border-radius: 1em 1em 1em 1em;
+}
+
+form{
+    width: 50%;
+}
+
+section{
+    background-color: rgb(163, 163, 163);
+    border-radius: 1em 1em 1em 1em;
+}
+
+th{
+    font-size: 2em;
+}
+
+tr{
+    border-bottom: 1px solid grey;
+    width: 100%;
+    font-size: 1.3em;
+}
+
+table{
+    width: 90%;
+}
+button{
+    background-color: orangered;
+    color: white;
+    margin: 1em;
+    width: 50%;
+}
+
+nav{
+    margin: 1em
+}
+
+input{
+    font-size: 1em !important;
+}
+
+.formAdiciona{
+    margin: 1em;
+}
+
+#botoes{
+    flex-direction: row !important;
+}
+
+#titulo{
+    font-size: 3em;
+}
+
+#subtitulo{
+    font-size: 2em;
+}
+
+#nome{
+    font-size: 1.5em;
+}
+
+.flexBoxCenter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabela{
+    text-align: center;
+}
+
+.displayNone{
+    display: none;
+}
