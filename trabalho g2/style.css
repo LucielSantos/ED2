@@ -3,6 +3,7 @@ header{
     color: white;
     min-height: 10em;
     border-radius: 1em 1em 1em 1em;
+    text-align: center;
 }
 
 form{
@@ -15,18 +16,24 @@ section{
 }
 
 th{
-    font-size: 2em;
+    font-size: 1.5em;
+    width: 50%;
 }
 
 tr{
     border-bottom: 1px solid grey;
     width: 100%;
-    font-size: 1.3em;
+}
+td{
+    padding: 0.5em;
 }
 
 table{
     width: 90%;
+    text-align: center;
+    color: black;
 }
+
 button{
     background-color: orangered;
     color: white;
@@ -34,14 +41,14 @@ button{
     width: 50%;
 }
 
-nav{
-    margin: 1em
-}
-
 input{
     font-size: 1em !important;
 }
 
+#mensagens{
+    width: 50%;
+    margin-top: 1em;
+}
 .formAdiciona{
     margin: 1em;
 }
@@ -69,10 +76,10 @@ input{
     align-items: center;
 }
 
-.tabela{
-    text-align: center;
-}
-
 .displayNone{
     display: none;
+}
+
+.bordaVermelha{
+    border: 2px solid red !important;
 }

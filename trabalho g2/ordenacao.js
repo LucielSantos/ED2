@@ -1,31 +1,33 @@
-const array = []
+class ClassArray{
+    
+    constructor(){
+        this.array = [];
+    }
 
-const ordenacao = {
-    array: () =>{
-        return array;
-    },
-
-    countSort: array => {
+    countSort (){
         let arrayAux = [];
     
         let cont = 0;
     
         let i, x;
     
-        for (i = 0; i < array.length; i++) {
-            arrayAux[i] = 0
+        for (i = 0; i < this.array.length; i++) {
+            arrayAux[i] = {
+                cgu: 0,
+                nome: null
+            }
         }
     
-        for (i = 0; i < array.length; i++) {
-            for (x = 0; x < array.length; x++) {
-                if (array[x].cgu < array[i].cgu) {
+        for (i = 0; i < this.array.length; i++) {
+            for (x = 0; x < this.array.length; x++) {
+                if (this.array[x].cgu < this.array[i].cgu) {
                     cont++;
                 }
             }
     
-            if (array[i].cgu == arrayAux[cont].cgu) {
-                for(let y = cont; y < array.length; y++){
-                    if(array[i].cgu == arrayAux[y].cgu){
+            if (this.array[i].cgu == arrayAux[cont].cgu) {
+                for(let y = cont; y < this.array.length; y++){
+                    if(this.array[i].cgu == arrayAux[y].cgu){
                         cont++;
                     }else{
                         break;
@@ -33,19 +35,24 @@ const ordenacao = {
                 }
             }
     
-            arrayAux[cont].cgu = array[i].cgu;
+            arrayAux[cont] = this.array[i];
             cont = 0;
         }
     
+        this.array = arrayAux;
         return arrayAux;
-    },
+    }
 
-    addTabela: tabela =>{
-        
-    },
+    add(elem) {
+        this.array.push(elem);
+    }
 
-    addArray: elem => {
-        array.push(elem);
+    pesquisaSequencial(cgu){
+        array.foreach(elem => {
+            if (elem.cgu == cgu) {
+                return elem;
+            }
+        })
     }
 }
  
