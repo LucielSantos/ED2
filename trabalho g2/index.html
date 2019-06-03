@@ -20,9 +20,6 @@
     </header>
 
     <section class="container flexBoxCenter">
-        <nav id="mensagens">
-
-        </nav>
         <form class="formAdiciona">
             <label for="cgu">CGU:</label>
             <input type="number" name="cgu" class="form-control" id="cgu" placeholder="Insira o CGU do aluno">
@@ -32,10 +29,12 @@
 
             <div class="flexBoxCenter" id="botoes">
                 <button class="btn btnNav" id="btnAdiciona">Adicionar</button>
-                <button class="btn btnNav" id="btnPesquisa">Pesquisar</button>
+                <button class="btn btnNav" id="btnPesquisaSeq">Pesquisa Seq.</button>
+                <button class="btn btnNav" id="btnPesquisaBin">Pesquisa Bin.</button>
                 <button class="btn btnNav" id="btnRemove">Remover</button>
                 <button class="btn btnNav" id="btnOrdena">Ordenar</button>
-            </div> 
+            </div>
+            <span id="mensagens"></span> 
         </form>
         
 
@@ -43,17 +42,6 @@
             <tr class="th">
                 <th>CGU</th>
                 <th>Nome</th>
-            </tr>
-
-            <tr class="td um">
-                <td>123456</td>
-                <td>um </td>
-            </tr>
-            <tr class="td dois">
-                <td>123456</td>
-                <td>Dois</td>
-            </tr>
-
         </table>
     </section>
 

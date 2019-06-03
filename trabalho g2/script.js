@@ -6,21 +6,29 @@ document.querySelectorAll('.btnNav').forEach(btn => {
         event.preventDefault();
 
         let form = document.querySelector('form');
-
+        let atributo = btn.getAttribute('id');
+        let campoMensagem = document.querySelector('#mensagens');
+        
         let aluno = {
             cgu: parseInt(form.cgu.value),
             nome: form.nome.value
         }
         
-        let atributo = btn.getAttribute('id');
         
         if (atributo == 'btnAdiciona') {
-          verificaAluno(aluno) ? addAluno(aluno) : mostraMensagem(atributo, aluno) ;
+            limpaMensagens(campoMensagem);
+            verificaAluno(aluno) ? addAluno(aluno) : mostraMensagemAdd(campoMensagem);
 
-        }else if(atributo == 'btnPesquisa'){
-            console.log(atributo);
+        }else if(atributo == 'btnPesquisaSeq'){
+            limpaMensagens(campoMensagem);
+            let resp = array.pesquisaSequencial(aluno.cgu);
+            mostraMensagemPesquisa(resp, campoMensagem);
             
-        }else if(atributo == 'btnRemove'){
+        } else if(atributo == 'btnPesquisaBin'){
+            console.log(atributo);
+        
+        }
+        else if(atributo == 'btnRemove'){
             console.log(atributo);
             
         }else if(atributo == 'btnOrdena'){
@@ -45,39 +53,21 @@ function addAluno(aluno) {
     tabela.addElemTabela(aluno);
 }
 
-function mostraMensagem(atributo) {
-    let campo = document.querySelector('#mensagens');
-    let ul = document.createElement('ul');
-    let li = document.createElement('li');
-    campo.innerHTML = ''
+function mostraMensagemPesquisa(resp, campo) {
+    campo.textContent = '';
 
-    if (atributo == 'btnAdiciona') {
-        li.textContent = 'Preencha os campos corretamente';
-        ul.appendChild(li);
-    }
-    campo.appendChild(ul);
-}
-
-function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-      if ((new Date().getTime() - start) > milliseconds){
-        break;
-      }
+    if (resp != false && resp != undefined) {
+        campo.textContent = `O aluno ${resp.nome} está na lista`;
+    }else{
+        campo.textContent = `Este CGU não está contido na tabela`;
     }
 }
 
-function deixarVermelho() {
-    let um = document.querySelector('.um')
-    let dois = document.querySelector('.dois')
+function mostraMensagemAdd(campo) {
+    campo.innerHTML = '';
+    campo.textContent = 'Preencha os campos corretamente.';
+}
 
-    let tempo = 5000;
-
-    setTimeout(function(){
-        um.classList.add('bordaVermelha');
-        sleep(2000)
-        setTimeout(function(){
-            dois.classList.add('bordaVermelha');
-        })
-    }, tempo)
+function limpaMensagens(campo) {
+    campo.innerHTML = '';
 }

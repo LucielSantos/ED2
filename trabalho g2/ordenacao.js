@@ -41,18 +41,25 @@ class ClassArray{
     
         this.array = arrayAux;
         return arrayAux;
-    }
+    };
 
     add(elem) {
         this.array.push(elem);
-    }
+    };
 
     pesquisaSequencial(cgu){
-        array.foreach(elem => {
-            if (elem.cgu == cgu) {
-                return elem;
+        let resp;
+
+        for (let i = 0; i < this.array.length; i++) {
+            if (this.array[i].cgu == cgu) {
+                resp = this.array[i];
+                break;
+            }else{
+                resp = false;
             }
-        })
+        }
+
+        return resp;
     }
 }
  
