@@ -34,4 +34,16 @@ class Tabela{
 
         return tr;
     }
+
+    remover(cgu){
+        let alunos = document.querySelectorAll("table tr");
+
+        alunos.forEach(aluno => {
+            if (aluno.className == 'td') {
+                if (aluno.firstChild.textContent == cgu) {
+                    aluno.remove();
+                }
+            }
+        })
+    }
 }

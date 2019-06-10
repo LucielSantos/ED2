@@ -21,20 +21,33 @@ document.querySelectorAll('.btnNav').forEach(btn => {
 
         }else if(atributo == 'btnPesquisaSeq'){
             limpaMensagens(campoMensagem);
-            let resp = array.pesquisaSequencial(aluno.cgu);
-            mostraMensagemPesquisa(resp, campoMensagem);
+            verificaCgu(aluno) ?  pesquisaSequencial(campoMensagem, aluno) : mensagemPesquisa(campoMensagem);
+           
             
         } else if(atributo == 'btnPesquisaBin'){
-            console.log(atributo);
-        
+            limpaMensagens(campoMensagem);
+            if (array.ordenado) {
+                verificaCgu(aluno) ?  pesquisaBinaria(campoMensagem, aluno) : mensagemPesquisa(campoMensagem);
+            }else{
+                campoMensagem.textContent = 'É obrigatório a ordenação do vetor';
+            }
+            
         }
         else if(atributo == 'btnRemove'){
-            console.log(atributo);
+            let verif = array.remover(aluno);
+            console.log(verif);
+            
+            if(verif){
+                tabela.remover(aluno.cgu)
+             }else{
+                 mensagemRemover(campoMensagem);
+             }
             
         }else if(atributo == 'btnOrdena'){
+            limpaMensagens(campoMensagem);
+            campoMensagem.textContent = 'Vetor Ordenado!';
             tabela.addArrayTabela(array.countSort());            
-        }
-
+        }        
         form.reset();
         form.cgu.focus();
     }
@@ -48,10 +61,36 @@ function verificaAluno(aluno) {
     }
 }
 
+function verificaCgu(aluno) {
+    if (isNaN(aluno.cgu) || aluno.cgu <= 0) {
+        return false;
+    }else{
+        return true;
+    }
+}
+
+function mensagemRemover(campo) {
+    campo.textContent = 'Este aluno não está contido na tabela';
+}
+
+function pesquisaSequencial(campoMensagem, aluno) {
+    let resp = array.pesquisaSequencial(aluno.cgu);
+    mostraMensagemPesquisa(resp, campoMensagem);
+}
+function pesquisaBinaria(campoMensagem, aluno) {
+    let resp = array.pesquisaBinaria(aluno.cgu);
+    mostraMensagemPesquisa(resp, campoMensagem);
+}
+
+function mensagemPesquisa(campoMensagem) {
+    campoMensagem.textContent = 'Este CGU não é válido';
+}
+
 function addAluno(aluno) {
     array.add(aluno);
     tabela.addElemTabela(aluno);
 }
+
 
 function mostraMensagemPesquisa(resp, campo) {
     campo.textContent = '';
